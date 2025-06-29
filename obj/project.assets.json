@@ -17,8 +17,8 @@
   "libraries": {
     "PKLib/1.0.0": {
       "type": "project",
-      "path": "../../PKLib/PKLib.csproj",
-      "msbuildProject": "../../PKLib/PKLib.csproj"
+      "path": "../PKLib/PKLib.csproj",
+      "msbuildProject": "../PKLib/PKLib.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -51,8 +51,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "/home/crono/src/c#/PKLib/PKLib.csproj": {
-              "projectPath": "/home/crono/src/c#/PKLib/PKLib.csproj"
+            "/home/crono/src/c#/PokemonDevelopment/PKLib/PKLib.csproj": {
+              "projectPath": "/home/crono/src/c#/PokemonDevelopment/PKLib/PKLib.csproj"
             }
           }
         }

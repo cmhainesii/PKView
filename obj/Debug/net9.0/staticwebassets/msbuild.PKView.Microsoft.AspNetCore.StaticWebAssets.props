@@ -12,8 +12,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>d7hjwawzse</Fingerprint>
-      <Integrity>J9oqh80+OKKYxoUVo1OLfRsnGdunnL3WqmZ+ZbDucDY=</Integrity>
+      <Fingerprint>zuk15ypjrq</Fingerprint>
+      <Integrity>21y1+tA8BEVoRIF1jdlFaVd+RJD50pjNL6Ot86dhxJQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\crono.css'))</OriginalItemSpec>

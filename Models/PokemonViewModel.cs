@@ -1,4 +1,5 @@
 using System;
+using PKLib;
 
 namespace PKView.Models;
 
@@ -12,6 +13,7 @@ public class PokemonViewModel
     public string _otName { get; set; }
     public string _nickname { get; set; }
     public string[] _types { get; set; }
+    public int _friendship { get; set; }
 
     public PokemonViewModel(Pokemon pokemon)
     {
@@ -23,6 +25,7 @@ public class PokemonViewModel
         _otName = pokemon._otName;
         _nickname = pokemon._nickname;
         _types = pokemon._types;
+        _friendship = pokemon._friendship;
 
     }
 
@@ -49,6 +52,21 @@ public class PokemonViewModel
         }
 
         return (int)Math.Round((double)sum / party.Count);
+    }
+
+    public static IReadOnlyList<PokemonViewModel> ToPokemonViewList(Party party)
+    {
+        List<PokemonViewModel> viewModelList = new List<PokemonViewModel>();
+
+        foreach (var pokemon in party.GetParty())
+        {
+            var model = new PokemonViewModel(pokemon);
+            viewModelList.Add(model);
+        }
+
+        return viewModelList;
+
+        
     }
     
 }

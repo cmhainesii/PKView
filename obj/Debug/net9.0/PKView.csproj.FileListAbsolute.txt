@@ -222,10 +222,11 @@
 /home/crono/src/c#/PokemonDevelopment/PKView/obj/Debug/net9.0/PKView.MvcApplicationPartsAssemblyInfo.cache
 /home/crono/src/c#/PokemonDevelopment/PKView/obj/Debug/net9.0/PKView.RazorAssemblyInfo.cache
 /home/crono/src/c#/PokemonDevelopment/PKView/obj/Debug/net9.0/PKView.RazorAssemblyInfo.cs
+/home/crono/src/c#/PokemonDevelopment/PKView/obj/Debug/net9.0/PKView.sourcelink.json
 /home/crono/src/c#/PokemonDevelopment/PKView/obj/Debug/net9.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
 /home/crono/src/c#/PokemonDevelopment/PKView/obj/Debug/net9.0/scopedcss/bundle/PKView.styles.css
 /home/crono/src/c#/PokemonDevelopment/PKView/obj/Debug/net9.0/scopedcss/projectbundle/PKView.bundle.scp.css
-/home/crono/src/c#/PokemonDevelopment/PKView/obj/Debug/net9.0/compressed/m3nwmm80pl-d7hjwawzse.gz
+/home/crono/src/c#/PokemonDevelopment/PKView/obj/Debug/net9.0/compressed/m3nwmm80pl-zuk15ypjrq.gz
 /home/crono/src/c#/PokemonDevelopment/PKView/obj/Debug/net9.0/compressed/7qa3d6i3n1-lugek5hnai.gz
 /home/crono/src/c#/PokemonDevelopment/PKView/obj/Debug/net9.0/compressed/9n097xi0r6-61n19gt1b8.gz
 /home/crono/src/c#/PokemonDevelopment/PKView/obj/Debug/net9.0/compressed/xkgd4r4mve-fr7q2aak1r.gz

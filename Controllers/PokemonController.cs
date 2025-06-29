@@ -1,13 +1,23 @@
 using Microsoft.AspNetCore.Mvc;
+using PKLib;
+using PKView.Models;
 
 namespace MyApp.Namespace
 {
     public class PokemonController : Controller
     {
-        // GET: PokemonController
-        public ActionResult Index()
+        private readonly ILogger<PokemonController> _logger;
+        private readonly GameData _saveFile;
+
+        public PokemonController(ILogger<PokemonController> logger, GameData saveFile)
         {
-            return View();
+            _logger = logger;
+            _saveFile = saveFile;
+        }
+        // GET: PokemonController
+        public IActionResult PokemonParty()
+        {
+            return View(PokemonViewModel.ToPokemonViewList(_saveFile.GetParty()));
         }
 
     }

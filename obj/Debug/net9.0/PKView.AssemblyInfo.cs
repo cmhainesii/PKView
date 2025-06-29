@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PKView")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+09f22b36c843e96474bb0de62cb0e25866e802da")]
 [assembly: System.Reflection.AssemblyProductAttribute("PKView")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PKView")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -4,14 +4,14 @@
     "/home/crono/src/c#/PokemonDevelopment/PKView/PKView.csproj": {}
   },
   "projects": {
-    "/home/crono/src/c#/PKLib/PKLib.csproj": {
+    "/home/crono/src/c#/PokemonDevelopment/PKLib/PKLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/crono/src/c#/PKLib/PKLib.csproj",
+        "projectUniqueName": "/home/crono/src/c#/PokemonDevelopment/PKLib/PKLib.csproj",
         "projectName": "PKLib",
-        "projectPath": "/home/crono/src/c#/PKLib/PKLib.csproj",
+        "projectPath": "/home/crono/src/c#/PokemonDevelopment/PKLib/PKLib.csproj",
         "packagesPath": "/home/crono/.nuget/packages/",
-        "outputPath": "/home/crono/src/c#/PKLib/obj/",
+        "outputPath": "/home/crono/src/c#/PokemonDevelopment/PKLib/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/crono/.nuget/NuGet/NuGet.Config"
@@ -91,8 +91,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/home/crono/src/c#/PKLib/PKLib.csproj": {
-                "projectPath": "/home/crono/src/c#/PKLib/PKLib.csproj"
+              "/home/crono/src/c#/PokemonDevelopment/PKLib/PKLib.csproj": {
+                "projectPath": "/home/crono/src/c#/PokemonDevelopment/PKLib/PKLib.csproj"
               }
             }
           }

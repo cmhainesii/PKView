@@ -28,14 +28,14 @@ public class SaveFileViewModel
         Generation = saveData.GetGeneration();
         RivalName = saveData.GetRivalName();
         BadgeCount = saveData.GetBadges().GetNumBadges();
-        // if (Generation == 2)
-        // {
-        //     TimeResetCode = PokemonUtil.GCSTimeResetPassword(
-        //         TrainerName,
-        //         int.Parse(TrainerId),
-        //         Money
-        //     );
-        // }
+        if (Generation == 2)
+        {
+            TimeResetCode = PokemonUtil.GCSTimeResetPassword(
+                TrainerName,
+                int.Parse(TrainerId),
+                Money
+            );
+        }
 
         _partyPokemon = new List<PokemonViewModel>();
         foreach (Pokemon pokemon in saveData.GetPartyPokemon())

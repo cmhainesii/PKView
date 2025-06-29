@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "IQ3wnE/qXI5EnVmCHhOaezL8Le/aVQCUo04LEQOrmDE=",
+  "Hash": "p80nsTIgqFaIg4XLwKfRTelmcrKSy9rWfPz9mQa7oWw=",
   "Source": "PKView",
   "BasePath": "_content/PKView",
   "Mode": "Default",
@@ -899,12 +899,12 @@
       "OriginalItemSpec": "/home/crono/src/c#/PokemonDevelopment/PKView/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css"
     },
     {
-      "Identity": "/home/crono/src/c#/PokemonDevelopment/PKView/obj/Debug/net9.0/compressed/m3nwmm80pl-d7hjwawzse.gz",
+      "Identity": "/home/crono/src/c#/PokemonDevelopment/PKView/obj/Debug/net9.0/compressed/m3nwmm80pl-zuk15ypjrq.gz",
       "SourceId": "PKView",
       "SourceType": "Discovered",
       "ContentRoot": "/home/crono/src/c#/PokemonDevelopment/PKView/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/PKView",
-      "RelativePath": "css/crono#[.{fingerprint=d7hjwawzse}]?.css.gz",
+      "RelativePath": "css/crono#[.{fingerprint=zuk15ypjrq}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -913,8 +913,8 @@
       "RelatedAsset": "/home/crono/src/c#/PokemonDevelopment/PKView/wwwroot/css/crono.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "ulf6li5zyq",
-      "Integrity": "gmEm4WPMIT0uiQ3NlTSoSRWy1azdHFbYGQ0tG0qI/hk=",
+      "Fingerprint": "hjberqp3ip",
+      "Integrity": "7ST8O8SyJSFy+TsYYRVeQpAyAEMPh6kbU1cYAvOqxgw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/home/crono/src/c#/PokemonDevelopment/PKView/wwwroot/css/crono.css"
@@ -1438,8 +1438,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "d7hjwawzse",
-      "Integrity": "J9oqh80+OKKYxoUVo1OLfRsnGdunnL3WqmZ+ZbDucDY=",
+      "Fingerprint": "zuk15ypjrq",
+      "Integrity": "21y1+tA8BEVoRIF1jdlFaVd+RJD50pjNL6Ot86dhxJQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/crono.css"
@@ -2771,12 +2771,12 @@
   "Endpoints": [
     {
       "Route": "css/crono.css",
-      "AssetFile": "/home/crono/src/c#/PokemonDevelopment/PKView/obj/Debug/net9.0/compressed/m3nwmm80pl-d7hjwawzse.gz",
+      "AssetFile": "/home/crono/src/c#/PokemonDevelopment/PKView/obj/Debug/net9.0/compressed/m3nwmm80pl-zuk15ypjrq.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001148105626"
+          "Quality": "0.001124859393"
         }
       ],
       "ResponseHeaders": [
@@ -2786,15 +2786,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "870"
+          "Value": "888"
         },
         {
           "Name": "ETag",
-          "Value": "\"gmEm4WPMIT0uiQ3NlTSoSRWy1azdHFbYGQ0tG0qI/hk=\""
+          "Value": "\"7ST8O8SyJSFy+TsYYRVeQpAyAEMPh6kbU1cYAvOqxgw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 29 Jun 2025 17:40:48 GMT"
+          "Value": "Sun, 29 Jun 2025 21:13:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2814,13 +2814,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"J9oqh80+OKKYxoUVo1OLfRsnGdunnL3WqmZ+ZbDucDY=\""
+          "Value": "W/\"21y1+tA8BEVoRIF1jdlFaVd+RJD50pjNL6Ot86dhxJQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-J9oqh80+OKKYxoUVo1OLfRsnGdunnL3WqmZ+ZbDucDY="
+          "Value": "sha256-21y1+tA8BEVoRIF1jdlFaVd+RJD50pjNL6Ot86dhxJQ="
         }
       ]
     },
@@ -2835,7 +2835,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2549"
+          "Value": "2602"
         },
         {
           "Name": "Content-Type",
@@ -2843,11 +2843,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"J9oqh80+OKKYxoUVo1OLfRsnGdunnL3WqmZ+ZbDucDY=\""
+          "Value": "\"21y1+tA8BEVoRIF1jdlFaVd+RJD50pjNL6Ot86dhxJQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 29 Jun 2025 17:40:48 GMT"
+          "Value": "Sun, 29 Jun 2025 21:13:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2857,13 +2857,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-J9oqh80+OKKYxoUVo1OLfRsnGdunnL3WqmZ+ZbDucDY="
+          "Value": "sha256-21y1+tA8BEVoRIF1jdlFaVd+RJD50pjNL6Ot86dhxJQ="
         }
       ]
     },
     {
       "Route": "css/crono.css.gz",
-      "AssetFile": "/home/crono/src/c#/PokemonDevelopment/PKView/obj/Debug/net9.0/compressed/m3nwmm80pl-d7hjwawzse.gz",
+      "AssetFile": "/home/crono/src/c#/PokemonDevelopment/PKView/obj/Debug/net9.0/compressed/m3nwmm80pl-zuk15ypjrq.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2872,7 +2872,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "870"
+          "Value": "888"
         },
         {
           "Name": "Content-Type",
@@ -2880,11 +2880,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"gmEm4WPMIT0uiQ3NlTSoSRWy1azdHFbYGQ0tG0qI/hk=\""
+          "Value": "\"7ST8O8SyJSFy+TsYYRVeQpAyAEMPh6kbU1cYAvOqxgw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 29 Jun 2025 17:40:48 GMT"
+          "Value": "Sun, 29 Jun 2025 21:13:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2902,18 +2902,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-gmEm4WPMIT0uiQ3NlTSoSRWy1azdHFbYGQ0tG0qI/hk="
+          "Value": "sha256-7ST8O8SyJSFy+TsYYRVeQpAyAEMPh6kbU1cYAvOqxgw="
         }
       ]
     },
     {
-      "Route": "css/crono.d7hjwawzse.css",
-      "AssetFile": "/home/crono/src/c#/PokemonDevelopment/PKView/obj/Debug/net9.0/compressed/m3nwmm80pl-d7hjwawzse.gz",
+      "Route": "css/crono.zuk15ypjrq.css",
+      "AssetFile": "/home/crono/src/c#/PokemonDevelopment/PKView/obj/Debug/net9.0/compressed/m3nwmm80pl-zuk15ypjrq.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001148105626"
+          "Quality": "0.001124859393"
         }
       ],
       "ResponseHeaders": [
@@ -2923,15 +2923,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "870"
+          "Value": "888"
         },
         {
           "Name": "ETag",
-          "Value": "\"gmEm4WPMIT0uiQ3NlTSoSRWy1azdHFbYGQ0tG0qI/hk=\""
+          "Value": "\"7ST8O8SyJSFy+TsYYRVeQpAyAEMPh6kbU1cYAvOqxgw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 29 Jun 2025 17:40:48 GMT"
+          "Value": "Sun, 29 Jun 2025 21:13:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2951,13 +2951,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"J9oqh80+OKKYxoUVo1OLfRsnGdunnL3WqmZ+ZbDucDY=\""
+          "Value": "W/\"21y1+tA8BEVoRIF1jdlFaVd+RJD50pjNL6Ot86dhxJQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "d7hjwawzse"
+          "Value": "zuk15ypjrq"
         },
         {
           "Name": "label",
@@ -2965,12 +2965,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-J9oqh80+OKKYxoUVo1OLfRsnGdunnL3WqmZ+ZbDucDY="
+          "Value": "sha256-21y1+tA8BEVoRIF1jdlFaVd+RJD50pjNL6Ot86dhxJQ="
         }
       ]
     },
     {
-      "Route": "css/crono.d7hjwawzse.css",
+      "Route": "css/crono.zuk15ypjrq.css",
       "AssetFile": "/home/crono/src/c#/PokemonDevelopment/PKView/wwwroot/css/crono.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2980,7 +2980,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2549"
+          "Value": "2602"
         },
         {
           "Name": "Content-Type",
@@ -2988,11 +2988,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"J9oqh80+OKKYxoUVo1OLfRsnGdunnL3WqmZ+ZbDucDY=\""
+          "Value": "\"21y1+tA8BEVoRIF1jdlFaVd+RJD50pjNL6Ot86dhxJQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 29 Jun 2025 17:40:48 GMT"
+          "Value": "Sun, 29 Jun 2025 21:13:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3002,7 +3002,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "d7hjwawzse"
+          "Value": "zuk15ypjrq"
         },
         {
           "Name": "label",
@@ -3010,13 +3010,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-J9oqh80+OKKYxoUVo1OLfRsnGdunnL3WqmZ+ZbDucDY="
+          "Value": "sha256-21y1+tA8BEVoRIF1jdlFaVd+RJD50pjNL6Ot86dhxJQ="
         }
       ]
     },
     {
-      "Route": "css/crono.d7hjwawzse.css.gz",
-      "AssetFile": "/home/crono/src/c#/PokemonDevelopment/PKView/obj/Debug/net9.0/compressed/m3nwmm80pl-d7hjwawzse.gz",
+      "Route": "css/crono.zuk15ypjrq.css.gz",
+      "AssetFile": "/home/crono/src/c#/PokemonDevelopment/PKView/obj/Debug/net9.0/compressed/m3nwmm80pl-zuk15ypjrq.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3025,7 +3025,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "870"
+          "Value": "888"
         },
         {
           "Name": "Content-Type",
@@ -3033,11 +3033,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"gmEm4WPMIT0uiQ3NlTSoSRWy1azdHFbYGQ0tG0qI/hk=\""
+          "Value": "\"7ST8O8SyJSFy+TsYYRVeQpAyAEMPh6kbU1cYAvOqxgw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 29 Jun 2025 17:40:48 GMT"
+          "Value": "Sun, 29 Jun 2025 21:13:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3055,7 +3055,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "d7hjwawzse"
+          "Value": "zuk15ypjrq"
         },
         {
           "Name": "label",
@@ -3063,7 +3063,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-gmEm4WPMIT0uiQ3NlTSoSRWy1azdHFbYGQ0tG0qI/hk="
+          "Value": "sha256-7ST8O8SyJSFy+TsYYRVeQpAyAEMPh6kbU1cYAvOqxgw="
         }
       ]
     },
@@ -21650,7 +21650,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 29 Jun 2025 17:40:48 GMT"
+          "Value": "Sun, 29 Jun 2025 21:15:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21703,7 +21703,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 29 Jun 2025 17:40:48 GMT"
+          "Value": "Sun, 29 Jun 2025 21:15:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21740,7 +21740,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 29 Jun 2025 17:40:48 GMT"
+          "Value": "Sun, 29 Jun 2025 21:15:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21787,7 +21787,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 29 Jun 2025 17:40:48 GMT"
+          "Value": "Sun, 29 Jun 2025 21:15:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21840,7 +21840,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 29 Jun 2025 17:40:48 GMT"
+          "Value": "Sun, 29 Jun 2025 21:15:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21877,7 +21877,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 29 Jun 2025 17:40:48 GMT"
+          "Value": "Sun, 29 Jun 2025 21:15:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21924,7 +21924,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 29 Jun 2025 17:40:48 GMT"
+          "Value": "Sun, 29 Jun 2025 21:15:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21985,7 +21985,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 29 Jun 2025 17:40:48 GMT"
+          "Value": "Sun, 29 Jun 2025 21:15:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22030,7 +22030,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 29 Jun 2025 17:40:48 GMT"
+          "Value": "Sun, 29 Jun 2025 21:15:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22085,7 +22085,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 29 Jun 2025 17:40:48 GMT"
+          "Value": "Sun, 29 Jun 2025 21:15:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22146,7 +22146,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 29 Jun 2025 17:40:48 GMT"
+          "Value": "Sun, 29 Jun 2025 21:15:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22191,7 +22191,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 29 Jun 2025 17:40:48 GMT"
+          "Value": "Sun, 29 Jun 2025 21:15:40 GMT"
         },
         {
           "Name": "Cache-Control",
