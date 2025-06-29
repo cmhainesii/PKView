@@ -1,0 +1,80 @@
+@model SaveFileViewModel
+
+@{
+    ViewData["Title"] = "Pokémon Trainer Card";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+
+            <!-- Header -->
+            <div class="text-center mb-4">
+                <h1 class="display-4">Trainer Card</h1>
+                <p class="lead">Trainer Information and Statistics</p>
+            </div>
+
+            <!-- Main Card -->
+            <div class="card mb-4">
+                <div class="card-header text-center">
+                    <h3>@Model.TrainerName</h3>
+                    <p>Trainer ID: @Model.TrainerId | Generation @Model.Generation</p>
+                </div>
+
+                <div class="card-body">
+                    <!-- A few stats in the trainer card -->
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h5>Seen:</h5>
+                                    <h4>@Model.SeenCount</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h5>Caught:</h5>
+                                    <h4>@Model.CaughtCount</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @{
+                        var completionRate = Model.SeenCount > 0 ? (double)Model.CaughtCount / Model.SeenCount * 100 : 0;
+                    }
+                    <div class="mt-3">
+                        <div class="d-flex justify-content-between">
+                            <small>Catch Rate:</small>
+                            <small>@completionRate.ToString("F1")%</small>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-warning"
+                            style="width: @completionRate.ToString("F1")%" aria-valuenow="@completionRate" aria-valuemin="0" aria-valuemax="100">
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <!-- Rival -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Additional Information:</h5>
+                        </div>
+                        <div class="card-body">
+                                <div class="col-sm-6">
+                                    <p>Rival Name: <strong>@Model.RivalName</strong></p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p>Clock Reset Password: <strong>@Model.TimeResetCode</strong></p>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,101 @@
+.pokemon-card-gradient1 {
+    background: linear-gradient(45deg, hsla(23, 98%, 55%, 1) 0%, hsla(60, 89%, 72%, 1) 100%);
+}
+
+.pokemon-card-gradient2 {
+    background: linear-gradient(225deg, hsla(50, 90%, 88%, 1) 0%, hsla(335, 100%, 71%, 1) 50%, hsla(252, 100%, 87%, 1) 100%);
+}
+
+.pokemon-card-gradient3 {
+    background: linear-gradient(90deg, hsla(192, 100%, 75%, 1) 0%, hsla(225, 81%, 36%, 1) 100%);
+}
+
+.background-gradient1 {
+    background: linear-gradient(135deg, hsla(292, 88%, 45%, 1) 0%, hsla(303, 100%, 76%, 1) 100%);
+}
+
+.header-gradient1 {
+    background: linear-gradient(135deg, hsla(0, 0%, 0%, 1) 0%, hsla(300, 7%, 17%, 1) 100%);
+}
+
+.pokemon-card-container {
+    max-width: 1400px; /* Wider container */
+    margin: 0 auto;
+}
+
+.pokemon-card-col {
+    min-width: 400px; /* Minimum card width */
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    min-height: 350px; /* Consistent card height */
+}
+
+.pokemon-level {
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    color: #333;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.pokemon-name {
+    background: linear-gradient(45deg, #000, #000);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 35px;
+    font-weight: bold;
+}
+
+.stats-container {
+    margin-top: 20px;
+}
+
+.stat-row {
+    display: grid;
+    grid-template-columns: 140px 1fr 50px; /* Wider name column, wider value column */
+    gap: 20px; /* More spacing */
+    align-items: center;
+    margin-bottom: 15px; /* More vertical spacing */
+    color: white;
+}
+
+.stat-name {
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.stat-bar {
+    height: 12px; /* Taller bars */
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.stat-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 2s ease-in-out;
+}
+
+.stat-value {
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: right;
+}
+
+    /* Different gradient fills for different stats */
+    .stat-hp { background: linear-gradient(90deg, #ff6b6b, #ee5a52); }
+    .stat-attack { background: linear-gradient(90deg, #ff9f43, #f0932b); }
+    .stat-defense { background: linear-gradient(90deg, #6c5ce7, #5f3dc4); }
+    .stat-speed { background: linear-gradient(90deg, #00d2d3, #01a3a4); }

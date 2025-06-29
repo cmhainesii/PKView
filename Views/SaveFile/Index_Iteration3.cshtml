@@ -1,0 +1,105 @@
+@model SaveFileViewModel
+@{
+    ViewData["Title"] = "Pokémon Save File";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            
+            <!-- Header -->
+            <div class="text-center mb-4">
+                <h1 class="display-4 text-primary">Pokémon Save File</h1>
+                <p class="lead text-muted">Trainer information and statistics</p>
+            </div>
+
+            <!-- Main Card -->
+            <div class="card shadow mb-4">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3 class="mb-0">@Model.TrainerName</h3>
+                    <div class="mt-2">
+                        <small>Trainer ID: @Model.TrainerId</small>
+                        <span class="badge bg-light text-dark ms-2">Gen @Model.Generation</span>
+                        @if (!string.IsNullOrEmpty(Model.RivalName))
+                        {
+                            <small class="ms-2">Rival: @Model.RivalName</small>
+                        }
+                    </div>
+                </div>
+                
+                <div class="card-body">
+                    <!-- Colored Stats Cards -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="card bg-success text-white">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">💰 Money</h5>
+                                    <h4 class="mb-0">@Model.Money.ToString("N0")</h4>
+                                    <small>Pokédollars</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card bg-warning text-dark">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">🏅 Badges</h5>
+                                    <h4 class="mb-0">@Model.BadgeCount</h4>
+                                    <small>Gym Badges</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pokédex Stats with Progress -->
+                    <div class="card bg-info text-white">
+                        <div class="card-header bg-dark border-0">
+                            <h5 class="mb-0">📖 Pokédex Progress</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="text-center">
+                                        <h4>@Model.SeenCount</h4>
+                                        <small>Pokémon Seen</small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="text-center">
+                                        <h4>@Model.CaughtCount</h4>
+                                        <small>Pokémon Caught</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            @{
+                                var completionRate = Model.SeenCount > 0 ? (double)Model.CaughtCount / Model.SeenCount * 100 : 0;
+                            }
+                            <div class="mt-3">
+                                <div class="d-flex justify-content-between">
+                                    <small>Catch Rate</small>
+                                    <small>@completionRate.ToString("F1")%</small>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" 
+                                         style="width: @completionRate.ToString("F1")%" 
+                                         aria-valuenow="@completionRate" aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Generation-specific Info -->
+                @if (Model.Generation == 2)
+                {
+                    <div class="card-footer bg-dark text-white text-center">
+                        <small>🔑 Time Reset Code: <strong>@Model.TimeResetCode</strong></small>
+                    </div>
+                }
+            </div>
+            
+        </div>
+    </div>
+</div>

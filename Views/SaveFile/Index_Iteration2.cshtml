@@ -1,0 +1,86 @@
+@model SaveFileViewModel
+@{
+    ViewData["Title"] = "Pokémon Save File";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            
+            <!-- Header -->
+            <div class="text-center mb-4">
+                <h1 class="display-4">Pokémon Save File</h1>
+                <p class="lead">Trainer information and statistics</p>
+            </div>
+
+            <!-- Main Card -->
+            <div class="card mb-4">
+                <div class="card-header text-center">
+                    <h3>@Model.TrainerName</h3>
+                    <p>Trainer ID: @Model.TrainerId | Generation @Model.Generation</p>
+                </div>
+                
+                <div class="card-body">
+                    <!-- Basic Stats in Simple Cards -->
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h5>Money</h5>
+                                    <h4>@Model.Money.ToString("N0")</h4>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h5>Badges</h5>
+                                    <h4>@Model.BadgeCount</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pokédex Stats -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Pokédex Progress</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <p>Seen: <strong>@Model.SeenCount</strong></p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p>Caught: <strong>@Model.CaughtCount</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Info -->
+            @if (!string.IsNullOrEmpty(Model.RivalName) || Model.Generation == 2)
+            {
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Additional Information</h5>
+                    </div>
+                    <div class="card-body">
+                        @if (!string.IsNullOrEmpty(Model.RivalName))
+                        {
+                            <p>Rival Name: <strong>@Model.RivalName</strong></p>
+                        }
+                        @if (Model.Generation == 2)
+                        {
+                            <p>Time Reset Password: <strong>@Model.TimeResetCode</strong></p>
+                        }
+                    </div>
+                </div>
+            }
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,274 @@
+@{
+    ViewData["Title"] = "CSS Gradient Tutorial";
+}
+
+<style>
+    .gradient-examples {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .gradient-card {
+        height: 200px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        margin-bottom: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Basic Linear Gradients */
+    .gradient-1 {
+        /* Simple two-color gradient */
+        background: linear-gradient(to right, #FF6B6B, #4ECDC4);
+    }
+
+    .gradient-2 {
+        /* Top to bottom */
+        background: linear-gradient(to bottom, #667eea, #764ba2);
+    }
+
+    .gradient-3 {
+        /* Diagonal */
+        background: linear-gradient(45deg, #f093fb, #f5576c);
+    }
+
+    .gradient-4 {
+        /* Multiple colors */
+        background: linear-gradient(to right, #ff9a9e, #fecfef, #fecfef);
+    }
+
+    /* Advanced Linear Gradients */
+    .gradient-5 {
+        /* Color stops at specific positions */
+        background: linear-gradient(90deg, 
+            #ff7e5f 0%, 
+            #feb47b 50%, 
+            #ff7e5f 100%);
+    }
+
+    .gradient-6 {
+        /* Sharp color transitions */
+        background: linear-gradient(to right, 
+            #11998e 0%, 
+            #11998e 50%, 
+            #38ef7d 50%, 
+            #38ef7d 100%);
+    }
+
+    /* Radial Gradients */
+    .gradient-7 {
+        background: radial-gradient(circle, #ff9a9e, #fecfef);
+    }
+
+    .gradient-8 {
+        background: radial-gradient(ellipse at top, #667eea, #764ba2);
+    }
+
+    /* Conic Gradients */
+    .gradient-9 {
+        background: conic-gradient(#ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ff6b6b);
+    }
+
+    /* Pokemon-themed gradients */
+    .gradient-fire {
+        background: linear-gradient(135deg, #ff6b35, #f7931e, #ffcc02);
+    }
+
+    .gradient-water {
+        background: linear-gradient(135deg, #667eea, #764ba2, #6b73ff);
+    }
+
+    .gradient-grass {
+        background: linear-gradient(135deg, #11998e, #38ef7d, #7ed321);
+    }
+
+    .gradient-electric {
+        background: linear-gradient(135deg, #ffd89b, #19547b, #ffcc02);
+    }
+
+    .gradient-psychic {
+        background: linear-gradient(135deg, #d299c2, #fef9d7, #ff9a9e);
+    }
+
+    .gradient-dragon {
+        background: linear-gradient(135deg, #667eea, #764ba2, #4facfe, #00f2fe);
+    }
+
+    .code-block {
+        background: #2d3748;
+        color: #e2e8f0;
+        padding: 15px;
+        border-radius: 8px;
+        font-family: 'Consolas', 'Monaco', monospace;
+        margin: 10px 0;
+        overflow-x: auto;
+    }
+
+    .section {
+        margin-bottom: 40px;
+    }
+
+    .section h3 {
+        color: #2d3748;
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="container-fluid">
+    <h1>CSS Gradient Tutorial</h1>
+    <p class="lead">Learn how to create beautiful gradients for your Pokemon cards!</p>
+
+    <div class="section">
+        <h3>1. Basic Linear Gradients</h3>
+        <div class="gradient-examples">
+            <div class="gradient-card gradient-1">
+                Left to Right
+            </div>
+            <div class="gradient-card gradient-2">
+                Top to Bottom
+            </div>
+            <div class="gradient-card gradient-3">
+                Diagonal (45°)
+            </div>
+        </div>
+        <div class="code-block">
+/* Left to Right */
+background: linear-gradient(to right, #FF6B6B, #4ECDC4);
+
+/* Top to Bottom */
+background: linear-gradient(to bottom, #667eea, #764ba2);
+
+/* Diagonal */
+background: linear-gradient(45deg, #f093fb, #f5576c);
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>2. Multi-Color Gradients</h3>
+        <div class="gradient-examples">
+            <div class="gradient-card gradient-4">
+                Three Colors
+            </div>
+            <div class="gradient-card gradient-5">
+                Color Stops
+            </div>
+            <div class="gradient-card gradient-6">
+                Sharp Transitions
+            </div>
+        </div>
+        <div class="code-block">
+/* Three Colors */
+background: linear-gradient(to right, #ff9a9e, #fecfef, #fecfef);
+
+/* Color Stops at Specific Positions */
+background: linear-gradient(90deg, 
+    #ff7e5f 0%, 
+    #feb47b 50%, 
+    #ff7e5f 100%);
+
+/* Sharp Color Transitions */
+background: linear-gradient(to right, 
+    #11998e 0%, 
+    #11998e 50%, 
+    #38ef7d 50%, 
+    #38ef7d 100%);
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>3. Radial and Conic Gradients</h3>
+        <div class="gradient-examples">
+            <div class="gradient-card gradient-7">
+                Radial Circle
+            </div>
+            <div class="gradient-card gradient-8">
+                Radial Ellipse
+            </div>
+            <div class="gradient-card gradient-9">
+                Conic Gradient
+            </div>
+        </div>
+        <div class="code-block">
+/* Radial Circle */
+background: radial-gradient(circle, #ff9a9e, #fecfef);
+
+/* Radial Ellipse positioned at top */
+background: radial-gradient(ellipse at top, #667eea, #764ba2);
+
+/* Conic (Conical) Gradient */
+background: conic-gradient(#ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ff6b6b);
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>4. Pokemon Type-Themed Gradients</h3>
+        <div class="gradient-examples">
+            <div class="gradient-card gradient-fire">
+                Fire Type
+            </div>
+            <div class="gradient-card gradient-water">
+                Water Type
+            </div>
+            <div class="gradient-card gradient-grass">
+                Grass Type
+            </div>
+            <div class="gradient-card gradient-electric">
+                Electric Type
+            </div>
+            <div class="gradient-card gradient-psychic">
+                Psychic Type
+            </div>
+            <div class="gradient-card gradient-dragon">
+                Dragon Type
+            </div>
+        </div>
+        <div class="code-block">
+/* Fire Type */
+background: linear-gradient(135deg, #ff6b35, #f7931e, #ffcc02);
+
+/* Water Type */
+background: linear-gradient(135deg, #667eea, #764ba2, #6b73ff);
+
+/* Grass Type */
+background: linear-gradient(135deg, #11998e, #38ef7d, #7ed321);
+
+/* Electric Type */
+background: linear-gradient(135deg, #ffd89b, #19547b, #ffcc02);
+
+/* Psychic Type */
+background: linear-gradient(135deg, #d299c2, #fef9d7, #ff9a9e);
+
+/* Dragon Type */
+background: linear-gradient(135deg, #667eea, #764ba2, #4facfe, #00f2fe);
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>5. Advanced Techniques</h3>
+        <ul>
+            <li><strong>Multiple backgrounds:</strong> You can layer multiple gradients</li>
+            <li><strong>Transparency:</strong> Use rgba() colors for transparent effects</li>
+            <li><strong>Animation:</strong> Gradients can be animated with CSS transitions</li>
+            <li><strong>Pseudo-elements:</strong> Use ::before and ::after for overlay effects</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>6. Online Tools for Gradient Creation</h3>
+        <p>Here are some excellent online tools to help you create gradients:</p>
+        <ul>
+            <li><strong>CSS Gradient Generator:</strong> cssgradient.io</li>
+            <li><strong>Gradient Hunt:</strong> gradienthunt.com (gradient gallery)</li>
+            <li><strong>UI Gradients:</strong> uigradients.com</li>
+            <li><strong>Coolors:</strong> coolors.co (color palette generator)</li>
+            <li><strong>WebGradients:</strong> webgradients.com</li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+@model SaveFileViewModel
+@{
+    ViewData["Title"] = "Pokémon Save File";
+}
+
+<h1>Pokémon Save File</h1>
+
+<h2>Trainer: @Model.TrainerName</h2>
+<p>Trainer ID: @Model.TrainerId</p>
+<p>Generation: @Model.Generation</p>
+
+<h3>Stats</h3>
+<ul>
+    <li>Money: @Model.Money</li>
+    <li>Badges: @Model.BadgeCount</li>
+    <li>Pokémon Seen: @Model.SeenCount</li>
+    <li>Pokémon Caught: @Model.CaughtCount</li>
+</ul>
+
+@if (!string.IsNullOrEmpty(Model.RivalName))
+{
+    <p>Rival: @Model.RivalName</p>
+}
+
+@if (Model.Generation == 2)
+{
+    <p>Time Reset Code: @Model.TimeResetCode</p>
+}

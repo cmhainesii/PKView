@@ -1,0 +1,107 @@
+﻿@{
+    ViewData["Title"] = "Pokemon Party Data";
+}
+
+@functions {
+    public int CalculateStatWidth(int statValue, int maxScale = 200)
+    {
+        return Math.Max(0, Math.Min(100, (int)((double) statValue / maxScale * 100)));
+    }
+}
+
+@model List<PokemonViewModel>;
+
+<div class="container-fluid pokemon-card-container">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <!-- Header -->
+            <div class="text-center mb-4">
+                <h1 class="display-4">Party Pokemon</h1>
+                <p class="lead">Party Information & Statistics</p>
+            </div>
+
+            <!-- Main Card -->
+            <div class="card mb-4 background-gradient1">
+                <div class="card-header text-center header-gradient1 text-light">
+                    <h3>Trainer: NOVA</h3>
+                    <p>Trainer ID: 12027</p>
+                    <p>Team Average Level: @PokemonViewModel.AverageLevel(@Model)</p>
+                </div>
+                <div class="card-body">
+        
+            @for(int i = 0; i < 2; ++i)
+            {
+                <div class="row justify-content-center">
+
+                
+                @for(int j = 0; j < 3; ++j)
+                {
+                    if ((i * 3 + j) > Model.Count() - 1)
+                    {
+                        break;
+                    }
+                    var currentPokemon = Model[i * 3 + j] as PokemonViewModel;
+
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-3 pokemon-card-col">
+                            <div class="card glass-card">
+                                <div class="card-body text-center">
+                                    <h3 class="display-5 mb-3 pokemon-name">@currentPokemon._speciesName</h3>  
+                                    <div class="pokemon-level mb-3">Level: @currentPokemon._level</div>
+                                    <div class="pokemon-level mb-3">Type: @(currentPokemon._types[1] != "None" ? $"{currentPokemon._types[0]}/{currentPokemon._types[1]}" : $"{currentPokemon._types[0]}")
+                                    </div>
+                                    <div class="stat-container">
+                                        <div class="stat-row">
+                                            <span class="stat-name">HP</span>
+                                            <div class="stat-bar">
+                                                <div class="stat-fill stat-hp" style="width: @CalculateStatWidth(currentPokemon._stats.HP)%"></div>
+                                            </div>
+                                            <span class="stat-value">@currentPokemon._stats.HP</span>
+                                        </div>
+                                        <div class="stat-row">
+                                            <span class="stat-name">Attack</span>
+                                            <div class="stat-bar">
+                                                <div class="stat-fill stat-attack" style="width: @CalculateStatWidth(currentPokemon._stats.Attack)%"></div>
+                                            </div>
+                                            <span class="stat-value">@currentPokemon._stats.Attack</span>
+                                        </div>
+                                        <div class="stat-row">
+                                            <span class="stat-name">Defense</span>
+                                            <div class="stat-bar">
+                                                <div class="stat-fill stat-defense" style="width: @CalculateStatWidth(currentPokemon._stats.Defense)%"></div>
+                                            </div>
+                                            <span class="stat-value">@currentPokemon._stats.Defense</span>
+                                        </div>
+                                        <div class="stat-row">
+                                            <span class="stat-name">Special Attack</span>
+                                            <div class="stat-bar">
+                                                <div class="stat-fill stat-defense" style="width: @CalculateStatWidth(currentPokemon._stats.SpecialAttack)%"></div>
+                                            </div>
+                                            <span class="stat-value">@currentPokemon._stats.SpecialAttack</span>
+                                        </div>
+                                        <div class="stat-row">
+                                            <span class="stat-name">Special Defense</span>
+                                            <div class="stat-bar">
+                                                <div class="stat-fill stat-defense" style="width: @CalculateStatWidth(currentPokemon._stats.SpecialDefense)%"></div>
+                                            </div>
+                                            <span class="stat-value">@currentPokemon._stats.SpecialDefense</span>
+                                        </div>
+                                        <div class="stat-row">
+                                            <span class="stat-name">Speed</span>
+                                            <div class="stat-bar">
+                                                <div class="stat-fill stat-speed" style="width: @CalculateStatWidth(currentPokemon._stats.Speed)%"></div>
+                                            </div>
+                                            <span class="stat-value">@currentPokemon._stats.Speed</span>
+                                        </div>
+                                    </div>  
+                                </div>
+                            </div>
+                        </div>
+                }
+
+                </div>
+            }       
+            </div>
+        </div>
+    </div>
+</div>
