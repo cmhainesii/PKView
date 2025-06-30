@@ -14,7 +14,7 @@ public class SaveFileViewModel
     public int CaughtCount { get; set; }
     public int Generation { get; set; }
     public string RivalName { get; set; }
-    public string TimeResetCode { get; set; } = "00000";
+    public string TimeResetCode { get; set; }
 
     public List<PokemonViewModel> _partyPokemon;
 
@@ -36,9 +36,10 @@ public class SaveFileViewModel
                 Money
             );
         }
+        TimeResetCode = saveData._timeResetPassword;
 
         _partyPokemon = new List<PokemonViewModel>();
-        foreach (Pokemon pokemon in saveData.GetPartyPokemon())
+        foreach (Pokemon pokemon in saveData.partyPokemon.GetParty())
         {
             _partyPokemon.Add(new PokemonViewModel(pokemon));
         }

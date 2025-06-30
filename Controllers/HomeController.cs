@@ -41,12 +41,5 @@ namespace PKView.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
-        public IActionResult MockPokemonParty()
-        {
-            var partyList = _saveFile.GetPartyPokemon();
-            var viewModelList = PokemonViewModel.ToPokemonViewList(partyList);
-            return View(viewModelList);
-        }
     }
 }

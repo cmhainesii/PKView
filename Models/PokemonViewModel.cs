@@ -29,7 +29,7 @@ public class PokemonViewModel
 
     }
 
-    public static List<PokemonViewModel> ToPokemonViewList(List<Pokemon> pokemonIn)
+    public static IReadOnlyList<PokemonViewModel> ToPokemonViewList(IReadOnlyList<Pokemon> pokemonIn)
     {
         List<PokemonViewModel> result = new List<PokemonViewModel>();
 
@@ -39,10 +39,10 @@ public class PokemonViewModel
             result.Add(viewModel);
         }
 
-        return result;
+        return result.AsReadOnly();
     }
 
-    public static int AverageLevel(List<PokemonViewModel> party)
+    public static int AverageLevel(IReadOnlyList<PokemonViewModel> party)
     {
         int sum = 0;
 
@@ -64,7 +64,7 @@ public class PokemonViewModel
             viewModelList.Add(model);
         }
 
-        return viewModelList;
+        return viewModelList.AsReadOnly();
 
         
     }

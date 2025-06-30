@@ -29,7 +29,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=SaveFile}/{action=Index}/{id?}")
+    pattern: "{controller=Pokemon}/{action=Index}/{id?}")
     .WithStaticAssets();
 
 
