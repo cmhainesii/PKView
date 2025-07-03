@@ -36,10 +36,10 @@ public class SaveFileViewModel
                 Money
             );
         }
-        TimeResetCode = saveData._timeResetPassword;
+        TimeResetCode = saveData.TimeResetPassword;
 
         _partyPokemon = new List<PokemonViewModel>();
-        foreach (Pokemon pokemon in saveData.partyPokemon.GetParty())
+        foreach (Pokemon pokemon in saveData.PartyPokemon.GetParty())
         {
             _partyPokemon.Add(new PokemonViewModel(pokemon));
         }

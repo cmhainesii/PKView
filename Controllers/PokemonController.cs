@@ -17,7 +17,7 @@ namespace MyApp.Namespace
         // GET: PokemonController
         public IActionResult PokemonParty()
         {
-            return View(PokemonViewModel.ToPokemonViewList(_saveFile.partyPokemon.GetParty()));
+            return View(PokemonViewModel.ToPokemonViewList(_saveFile.PartyPokemon.GetParty()));
         }
 
         public IActionResult Index()
