@@ -45,7 +45,7 @@
     border-radius: 15px;
     font-size: 0.9rem;
     font-weight: bold;
-    display: inline-block;
+    display: block;
 }
 
 .pokemon-name {
@@ -95,8 +95,195 @@
     text-align: right;
 }
 
-    /* Different gradient fills for different stats */
+/* Different gradient fills for different stats */
     .stat-hp { background: linear-gradient(90deg, #ff6b6b, #ee5a52); }
     .stat-attack { background: linear-gradient(90deg, #ff9f43, #f0932b); }
     .stat-defense { background: linear-gradient(90deg, #6c5ce7, #5f3dc4); }
+    .stat-special-attack { background: linear-gradient(90deg, #fd79a8, #e84393); }
+    .stat-special-defense { background: linear-gradient(90deg, #00b894, #00a085); }
     .stat-speed { background: linear-gradient(90deg, #00d2d3, #01a3a4); }
+
+/* Tab styling for Pokemon cards */
+.stat-tab {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: none !important;
+    color: white !important;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    margin: 0 2px;
+    border-radius: 15px !important;
+    transition: all 0.3s ease;
+}
+
+.stat-tab:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+}
+
+.stat-tab.active {
+    background: linear-gradient(45deg, #74b9ff, #0984e3) !important;
+    color: white !important;
+    box-shadow: 0 2px 8px rgba(116, 185, 255, 0.3);
+}
+
+/* Global tab styling - larger and more prominent */
+.global-tab {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    color: white !important;
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 20px !important;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.global-tab:hover {
+    background: rgba(0, 0, 0, 0.5) !important;
+    border: 2px solid rgba(255, 255, 255, 0.6) !important;
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.global-tab.active {
+    background: linear-gradient(45deg, #74b9ff, #0984e3) !important;
+    border: 2px solid rgba(255, 255, 255, 0.8) !important;
+    color: white !important;
+    box-shadow: 0 4px 16px rgba(116, 185, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Pokemon view containers */
+.pokemon-view {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Summary grid */
+.summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.summary-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.summary-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    margin-top: 5px;
+}
+
+/* Responsive adjustments for tabs */
+@media (max-width: 576px) {
+    .stat-tab {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+    }
+    
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .global-tab {
+        font-size: 0.85rem;
+        padding: 8px 16px;
+        margin: 0 2px;
+    }
+}
+
+/* Time Reset Code Generator Styles */
+.time-reset-btn {
+    background: linear-gradient(45deg, #fd79a8, #e84393);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.time-reset-btn:hover {
+    background: linear-gradient(45deg, #e84393, #d63384);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(232, 67, 147, 0.4);
+}
+
+.result-section {
+    text-align: center;
+}
+
+.code-display {
+    margin: 20px 0;
+}
+
+.code-box {
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 15px 0;
+    backdrop-filter: blur(5px);
+}
+
+.reset-code {
+    font-family: 'Courier New', monospace;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #74b9ff;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.trainer-info {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Form styling improvements */
+.form-control {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 12px 15px;
+    font-size: 1rem;
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: #74b9ff;
+    box-shadow: 0 0 0 0.2rem rgba(116, 185, 255, 0.25);
+}
+
+.form-label {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* Responsive adjustments for time reset form */
+@media (max-width: 576px) {
+    .reset-code {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+    
+    .code-box {
+        padding: 15px;
+    }
+    
+    .time-reset-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}

@@ -2,10 +2,24 @@
     ViewData["Title"] = "Pokemon Party Data";
 }
 
-@functions {
-    public int CalculateStatWidth(int statValue, int maxScale = 200)
+@functions{
+    public int CalculateStatWidth(int statValue)
     {
+        int maxScale = 100;
         return Math.Max(0, Math.Min(100, (int)((double) statValue / maxScale * 100)));
+    }
+    
+    public int CalculateIvWidth(int ivValue)
+    {
+        int maxIv = 15;
+        // For Gen I/II: maxIv = 15, for Gen III+: maxIv = 31
+        return Math.Max(0, Math.Min(100, (int)((double) ivValue / maxIv * 100)));
+    }
+
+    public int CalculateIvScoreWidth(int ivScore)
+    {
+        int maxScore = 60;
+        return Math.Max(0, Math.Min(100, (int)((double) ivScore / maxScore * 100)));
     }
 }
 
@@ -20,6 +34,19 @@
                 <p class="lead">Party Information & Statistics</p>
             </div>
 
+            <!-- Global Stats Navigation Tabs -->
+            <ul class="nav nav-pills justify-content-center mb-4" id="globalPokemonTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active stat-tab global-tab" id="global-stats-tab" data-view="stats" type="button" role="tab">Stats</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link stat-tab global-tab" id="global-ivs-tab" data-view="ivs" type="button" role="tab">IVs</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link stat-tab global-tab" id="global-summary-tab" data-view="summary" type="button" role="tab">Summary</button>
+                </li>
+            </ul>
+
             <!-- Main Card -->
             <div class="card mb-4 background-gradient1">
                 <div class="card-header text-center header-gradient1 text-light">
@@ -30,7 +57,7 @@
                 <div class="card-body">
         
             @for(int i = 0; i < 2; ++i)
-            {
+            { 
                 <div class="row justify-content-center">
 
                 
@@ -46,55 +73,140 @@
                     <div class="col-lg-4 col-md-6 col-sm-12 mb-3 pokemon-card-col">
                             <div class="card glass-card">
                                 <div class="card-body text-center">
-                                    <h3 class="display-5 mb-3 pokemon-name">@currentPokemon._speciesName</h3>  
-                                    <div class="pokemon-level mb-3">Level: @currentPokemon._level</div>
-                                    <div class="pokemon-level mb-3">Type: @(currentPokemon._types[1] != "None" ? $"{currentPokemon._types[0]}/{currentPokemon._types[1]}" : $"{currentPokemon._types[0]}")
+                                    <h3 class="display-5 mb-3 pokemon-name">@currentPokemon.SpeciesName</h3>  
+                                    <div class="pokemon-level mb-3">Level: @currentPokemon.Level</div>
+                                    <div class="pokemon-level mb-3">Type: @(currentPokemon.Types[1] != "None" ? $"{currentPokemon.Types[0]}/{currentPokemon.Types[1]}" : $"{currentPokemon.Types[0]}")</div>
+                                    <div class="pokemon-level mb-3">Friendship: @currentPokemon.Friendship</div>
+                                    
+                                    <!-- Stats View -->
+                                    <div class="pokemon-view stats-view">
+                                        <div class="stat-container">
+                                            <div class="stat-row">
+                                                <span class="stat-name">HP</span>
+                                                <div class="stat-bar">
+                                                    <div class="stat-fill stat-hp" style="width: @CalculateStatWidth(currentPokemon.Stats.HP)%"></div>
+                                                </div>
+                                                <span class="stat-value">@currentPokemon.Stats.HP</span>
+                                            </div>
+                                            <div class="stat-row">
+                                                <span class="stat-name">Attack</span>
+                                                <div class="stat-bar">
+                                                    <div class="stat-fill stat-attack" style="width: @CalculateStatWidth(currentPokemon.Stats.Attack)%"></div>
+                                                </div>
+                                                <span class="stat-value">@currentPokemon.Stats.Attack</span>
+                                            </div>
+                                            <div class="stat-row">
+                                                <span class="stat-name">Defense</span>
+                                                <div class="stat-bar">
+                                                    <div class="stat-fill stat-defense" style="width: @CalculateStatWidth(currentPokemon.Stats.Defense)%"></div>
+                                                </div>
+                                                <span class="stat-value">@currentPokemon.Stats.Defense</span>
+                                            </div>
+                                            <div class="stat-row">
+                                                <span class="stat-name">Special Attack</span>
+                                                <div class="stat-bar">
+                                                    <div class="stat-fill stat-special-attack" style="width: @CalculateStatWidth(currentPokemon.Stats.SpecialAttack)%"></div>
+                                                </div>
+                                                <span class="stat-value">@currentPokemon.Stats.SpecialAttack</span>
+                                            </div>
+                                            <div class="stat-row">
+                                                <span class="stat-name">Special Defense</span>
+                                                <div class="stat-bar">
+                                                    <div class="stat-fill stat-special-defense" style="width: @CalculateStatWidth(currentPokemon.Stats.SpecialDefense)%"></div>
+                                                </div>
+                                                <span class="stat-value">@currentPokemon.Stats.SpecialDefense</span>
+                                            </div>
+                                            <div class="stat-row">
+                                                <span class="stat-name">Speed</span>
+                                                <div class="stat-bar">
+                                                    <div class="stat-fill stat-speed" style="width: @CalculateStatWidth(currentPokemon.Stats.Speed)%"></div>
+                                                </div>
+                                                <span class="stat-value">@currentPokemon.Stats.Speed</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="pokemon-level mb-3">Friendship: @currentPokemon._friendship</div>
-                                    <div class="stat-container">
-                                        <div class="stat-row">
-                                            <span class="stat-name">HP</span>
-                                            <div class="stat-bar">
-                                                <div class="stat-fill stat-hp" style="width: @CalculateStatWidth(currentPokemon._stats.HP)%"></div>
+
+                                    <!-- IVs View -->
+                                    <div class="pokemon-view ivs-view" style="display: none;">
+                                        <div class="stat-container">
+                                            <div class="stat-row">
+                                                <span class="stat-name">HP</span>
+                                                <div class="stat-bar">
+                                                    <div class="stat-fill stat-hp" style="width: @CalculateIvWidth(currentPokemon.Ivs.HP)%"></div>
+                                                </div>
+                                                <span class="stat-value">@currentPokemon.Ivs.HP</span>
                                             </div>
-                                            <span class="stat-value">@currentPokemon._stats.HP</span>
-                                        </div>
-                                        <div class="stat-row">
-                                            <span class="stat-name">Attack</span>
-                                            <div class="stat-bar">
-                                                <div class="stat-fill stat-attack" style="width: @CalculateStatWidth(currentPokemon._stats.Attack)%"></div>
+                                            <div class="stat-row">
+                                                <span class="stat-name">Attack</span>
+                                                <div class="stat-bar">
+                                                    <div class="stat-fill stat-attack" style="width: @CalculateIvWidth(currentPokemon.Ivs.Attack)%"></div>
+                                                </div>
+                                                <span class="stat-value">@currentPokemon.Ivs.Attack</span>
                                             </div>
-                                            <span class="stat-value">@currentPokemon._stats.Attack</span>
-                                        </div>
-                                        <div class="stat-row">
-                                            <span class="stat-name">Defense</span>
-                                            <div class="stat-bar">
-                                                <div class="stat-fill stat-defense" style="width: @CalculateStatWidth(currentPokemon._stats.Defense)%"></div>
+                                            <div class="stat-row">
+                                                <span class="stat-name">Defense</span>
+                                                <div class="stat-bar">
+                                                    <div class="stat-fill stat-defense" style="width: @CalculateIvWidth(currentPokemon.Ivs.Defense)%"></div>
+                                                </div>
+                                                <span class="stat-value">@currentPokemon.Ivs.Defense</span>
                                             </div>
-                                            <span class="stat-value">@currentPokemon._stats.Defense</span>
-                                        </div>
-                                        <div class="stat-row">
-                                            <span class="stat-name">Special Attack</span>
-                                            <div class="stat-bar">
-                                                <div class="stat-fill stat-defense" style="width: @CalculateStatWidth(currentPokemon._stats.SpecialAttack)%"></div>
+                                            <div class="stat-row">
+                                                <span class="stat-name">Special Attack</span>
+                                                <div class="stat-bar">
+                                                    <div class="stat-fill stat-special-attack" style="width: @CalculateIvWidth(currentPokemon.Ivs.Special)%"></div>
+                                                </div>
+                                                <span class="stat-value">@currentPokemon.Ivs.Special</span>
                                             </div>
-                                            <span class="stat-value">@currentPokemon._stats.SpecialAttack</span>
-                                        </div>
-                                        <div class="stat-row">
-                                            <span class="stat-name">Special Defense</span>
-                                            <div class="stat-bar">
-                                                <div class="stat-fill stat-defense" style="width: @CalculateStatWidth(currentPokemon._stats.SpecialDefense)%"></div>
+                                            <div class="stat-row">
+                                                <span class="stat-name">Speed</span>
+                                                <div class="stat-bar">
+                                                    <div class="stat-fill stat-speed" style="width: @CalculateIvWidth(currentPokemon.Ivs.Speed)%"></div>
+                                                </div>
+                                                <span class="stat-value">@currentPokemon.Ivs.Speed</span>
                                             </div>
-                                            <span class="stat-value">@currentPokemon._stats.SpecialDefense</span>
-                                        </div>
-                                        <div class="stat-row">
-                                            <span class="stat-name">Speed</span>
-                                            <div class="stat-bar">
-                                                <div class="stat-fill stat-speed" style="width: @CalculateStatWidth(currentPokemon._stats.Speed)%"></div>
+                                            <div class="stat-row">
+                                                <span class="stat-name">IV Score</span>
+                                                <div class="stat-bar">
+                                                    <div class="stat-fill stat-hp" style="width: @CalculateIvScoreWidth(currentPokemon.IvScore)%"></div>
+                                                </div>
+                                                <span class="stat-value">@currentPokemon.IvScore (@CalculateIvScoreWidth(currentPokemon.IvScore)%)</span>
                                             </div>
-                                            <span class="stat-value">@currentPokemon._stats.Speed</span>
                                         </div>
-                                    </div>  
+                                    </div>
+
+                                    <!-- Summary View -->
+                                    <div class="pokemon-view summary-view" style="display: none;">
+                                        <div class="stat-container">
+                                            <div class="summary-grid">
+                                                <div class="summary-item">
+                                                    <small class="text-muted">Total Stat Points</small>
+                                                    <div class="summary-value">@(currentPokemon.Stats.HP + currentPokemon.Stats.Attack + currentPokemon.Stats.Defense + currentPokemon.Stats.SpecialAttack + currentPokemon.Stats.SpecialDefense + currentPokemon.Stats.Speed)</div>
+                                                </div>
+                                                <div class="summary-item">
+                                                    <small class="text-muted">IV Score</small>
+                                                    <div class="summary-value">@currentPokemon.IvScore</div>
+                                                </div>
+                                                <div class="summary-item">
+                                                    <small class="text-muted">Highest Stat</small>
+                                                    <div class="summary-value">
+                                                        @{
+                                                            var highestStat = Math.Max(Math.Max(Math.Max(currentPokemon.Stats.HP, currentPokemon.Stats.Attack), Math.Max(currentPokemon.Stats.Defense, currentPokemon.Stats.SpecialAttack)), Math.Max(currentPokemon.Stats.SpecialDefense, currentPokemon.Stats.Speed));
+                                                            string highestStatName = highestStat == currentPokemon.Stats.HP ? "HP" :
+                                                                                    highestStat == currentPokemon.Stats.Attack ? "Attack" :
+                                                                                    highestStat == currentPokemon.Stats.Defense ? "Defense" :
+                                                                                    highestStat == currentPokemon.Stats.SpecialAttack ? "Sp.Atk" :
+                                                                                    highestStat == currentPokemon.Stats.SpecialDefense ? "Sp.Def" : "Speed";
+                                                        }
+                                                        @highestStatName (@highestStat)
+                                                    </div>
+                                                </div>
+                                                <div class="summary-item">
+                                                    <small class="text-muted">IV Percentage</small>
+                                                    <div class="summary-value">@CalculateIvScoreWidth(currentPokemon.IvScore)%</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -104,5 +216,39 @@
             }       
             </div>
         </div>
+        </div>
     </div>
 </div>
+
+@section Scripts {
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all global tab buttons
+        const globalTabs = document.querySelectorAll('.global-tab');
+        
+        // Add click event listeners to global tabs
+        globalTabs.forEach(function(tab) {
+            tab.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Get the view type from data-view attribute
+                const viewType = this.getAttribute('data-view');
+                
+                // Update tab active states
+                globalTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Hide all views
+                document.querySelectorAll('.pokemon-view').forEach(view => {
+                    view.style.display = 'none';
+                });
+                
+                // Show the selected view for all Pokemon cards
+                document.querySelectorAll('.' + viewType + '-view').forEach(view => {
+                    view.style.display = 'block';
+                });
+            });
+        });
+    });
+</script>
+}

@@ -5,27 +5,29 @@ namespace PKView.Models;
 
 public class PokemonViewModel
 {
-    public string _speciesName { get; set; }
-    public ushort _level { get; set; }
-    public IV _ivs { get; set; }
-    public Stats _stats { get; set; }
-    public EVs _evs { get; set; }
-    public string _otName { get; set; }
-    public string _nickname { get; set; }
-    public string[] _types { get; set; }
-    public int _friendship { get; set; }
+    public string SpeciesName { get; set; }
+    public ushort Level { get; set; }
+    public IV Ivs { get; set; }
+    public Stats Stats { get; set; }
+    public EVs Evs { get; set; }
+    public string OtName { get; set; }
+    public string Nickname { get; set; }
+    public string[] Types { get; set; }
+    public int Friendship { get; set; }
+    public ushort IvScore { get; set; }
 
     public PokemonViewModel(Pokemon pokemon)
     {
-        _speciesName = pokemon._speciesName;
-        _level = pokemon._level;
-        _ivs = pokemon._ivs;
-        _stats = pokemon._stats;
-        _evs = pokemon._evs;
-        _otName = pokemon._otName;
-        _nickname = pokemon._nickname;
-        _types = pokemon._types;
-        _friendship = pokemon._friendship;
+        SpeciesName = pokemon._speciesName;
+        Level = pokemon._level;
+        Ivs = pokemon._ivs;
+        Stats = pokemon._stats;
+        Evs = pokemon._evs;
+        OtName = pokemon._otName;
+        Nickname = pokemon._nickname;
+        Types = pokemon._types;
+        Friendship = pokemon._friendship;
+        IvScore = pokemon.GetIvScore();
 
     }
 
@@ -48,7 +50,7 @@ public class PokemonViewModel
 
         foreach (var pokemon in party)
         {
-            sum += pokemon._level;
+            sum += pokemon.Level;
         }
 
         return (int)Math.Round((double)sum / party.Count);

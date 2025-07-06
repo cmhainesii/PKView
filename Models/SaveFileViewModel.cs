@@ -20,8 +20,9 @@ public class SaveFileViewModel
 
     public SaveFileViewModel(GameData saveData)
     {
-        TrainerName = saveData.GetTrainerName();
-        TrainerId = saveData.GetTrainerID();
+        Trainer trainer = saveData.Trainer;
+        TrainerName = trainer.Name;
+        TrainerId = trainer.Id;
         Money = (int)saveData.GetMoney();
         SeenCount = saveData.GetNumberSeen();
         CaughtCount = saveData.GetNumberOwned();

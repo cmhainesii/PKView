@@ -1,0 +1,146 @@
+@{
+    ViewData["Title"] = "Time Reset Code Generator";
+}
+
+<div class="container-fluid pokemon-card-container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+            <!-- Header -->
+            <div class="text-center mb-4">
+                <h1 class="display-4">Time Reset Code Generator</h1>
+                <p class="lead">Generate time reset codes for Pokemon Gold/Silver/Crystal</p>
+            </div>
+
+            <!-- Main Card -->
+            <div class="card mb-4 background-gradient1">
+                <div class="card-header text-center header-gradient1 text-light">
+                    <h3>Enter Trainer Information</h3>
+                    <p>Provide your trainer details to generate the time reset code</p>
+                </div>
+                <div class="card-body">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="card glass-card">
+                                <div class="card-body">
+                                    <form method="post" asp-action="TimeResetCode">
+                                        <div class="mb-3">
+                                            <label for="trainerName" class="form-label text-light">Trainer Name</label>
+                                            <input type="text" 
+                                                   class="form-control" 
+                                                   id="trainerName" 
+                                                   name="trainerName" 
+                                                   value="@ViewBag.TrainerName"
+                                                   placeholder="Enter your trainer name" 
+                                                   required 
+                                                   maxlength="10">
+                                            <div class="form-text text-light opacity-75">
+                                                Maximum 10 characters (as shown in game)
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="trainerId" class="form-label text-light">Trainer ID</label>
+                                            <input type="number" 
+                                                   class="form-control" 
+                                                   id="trainerId" 
+                                                   name="trainerId" 
+                                                   value="@ViewBag.TrainerId"
+                                                   placeholder="Enter your 5-digit trainer ID" 
+                                                   required 
+                                                   min="0" 
+                                                   max="65535">
+                                            <div class="form-text text-light opacity-75">
+                                                5-digit number shown on trainer card
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <label for="money" class="form-label text-light">Money</label>
+                                            <input type="number" 
+                                                   class="form-control" 
+                                                   id="money" 
+                                                   name="money" 
+                                                   value="@ViewBag.Money"
+                                                   placeholder="Enter your current money amount" 
+                                                   required 
+                                                   min="0" 
+                                                   max="999999">
+                                            <div class="form-text text-light opacity-75">
+                                                Current money amount (up to 999,999)
+                                            </div>
+                                        </div>
+
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary btn-lg time-reset-btn">
+                                                <i class="fas fa-clock me-2"></i>Generate Time Reset Code
+                                            </button>
+                                        </div>
+                                    </form>
+
+                                    @if (!string.IsNullOrEmpty(ViewBag.TimeResetCode as string))
+                                    {
+                                        <hr class="my-4" style="border-color: rgba(255,255,255,0.3);">
+                                        
+                                        <div class="result-section">
+                                            <h4 class="text-center text-light mb-3">
+                                                <i class="fas fa-key me-2"></i>Generated Time Reset Code
+                                            </h4>
+                                            
+                                            <div class="code-display">
+                                                <div class="code-box">
+                                                    <span class="reset-code">@ViewBag.TimeResetCode</span>
+                                                </div>
+                                                <button type="button" class="btn btn-sm btn-outline-light mt-2" onclick="copyToClipboard()">
+                                                    <i class="fas fa-copy me-1"></i>Copy Code
+                                                </button>
+                                            </div>
+
+                                            <div class="trainer-info mt-3">
+                                                <small class="text-light opacity-75">
+                                                    Generated for: <strong>@ViewBag.TrainerName</strong> 
+                                                    (ID: @ViewBag.TrainerId, Money: ¥@ViewBag.Money)
+                                                </small>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+    function copyToClipboard() {
+        const codeText = document.querySelector('.reset-code').textContent;
+        navigator.clipboard.writeText(codeText).then(function() {
+            // Show success feedback
+            const button = event.target.closest('button');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-check me-1"></i>Copied!';
+            button.classList.add('btn-success');
+            button.classList.remove('btn-outline-light');
+            
+            setTimeout(function() {
+                button.innerHTML = originalText;
+                button.classList.remove('btn-success');
+                button.classList.add('btn-outline-light');
+            }, 2000);
+        }).catch(function(err) {
+            console.error('Could not copy text: ', err);
+        });
+    }
+
+    // Auto-format trainer ID input
+    document.getElementById('trainerId').addEventListener('input', function(e) {
+        let value = e.target.value;
+        if (value.length > 5) {
+            e.target.value = value.slice(0, 5);
+        }
+    });
+</script>
+}
