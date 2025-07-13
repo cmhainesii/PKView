@@ -1,0 +1,344 @@
+@using PKView.Models
+@{
+    ViewData["Title"] = "Upload Save File";
+}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-xl-6">
+            <!-- Header -->
+            <div class="text-center mb-4">
+                <h1 class="display-4 text-primary mb-2">
+                    <i class="fas fa-upload me-2"></i>Upload Save File
+                </h1>
+                <p class="lead text-muted">Upload your Pokémon save file (.sav or .srm) for analysis</p>
+            </div>
+
+            <!-- Alert Messages -->
+            @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    @ViewBag.ErrorMessage
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+
+            @if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="fas fa-check-circle me-2"></i>
+                    @ViewBag.SuccessMessage
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+
+            <!-- Upload Form -->
+            <div class="card shadow-lg border-0 mb-4">
+                <div class="card-header bg-primary text-white text-center py-3">
+                    <h3 class="card-title mb-0">
+                        <i class="fas fa-file-upload me-2"></i>Select Save File
+                    </h3>
+                </div>
+                
+                <div class="card-body p-4">
+                    <form method="post" enctype="multipart/form-data" id="uploadForm">
+                        @Html.AntiForgeryToken()
+                        
+                        <!-- File Input -->
+                        <div class="mb-4">
+                            <label for="saveFile" class="form-label fw-bold">Choose Save File</label>
+                            <div class="input-group">
+                                <input type="file" 
+                                       class="form-control" 
+                                       id="saveFile" 
+                                       name="saveFile" 
+                                       accept=".sav,.srm" 
+                                       required>
+                                <label class="input-group-text" for="saveFile">
+                                    <i class="fas fa-folder-open"></i>
+                                </label>
+                            </div>
+                            <div class="form-text">
+                                <i class="fas fa-info-circle me-1"></i>
+                                Supported formats: .sav, .srm (Max size: 32KB)
+                            </div>
+                        </div>
+
+                        <!-- File Info Display -->
+                        <div id="fileInfo" class="mb-3" style="display: none;">
+                            <div class="card bg-light">
+                                <div class="card-body p-3">
+                                    <h6 class="card-title mb-2">
+                                        <i class="fas fa-file me-1"></i>Selected File
+                                    </h6>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <small class="text-muted">Filename:</small>
+                                            <div id="fileName" class="fw-bold"></div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <small class="text-muted">Size:</small>
+                                            <div id="fileSize" class="fw-bold"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg" id="uploadBtn">
+                                <i class="fas fa-upload me-2"></i>Upload Save File
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Upload Success Actions -->
+            @if (!string.IsNullOrEmpty(ViewBag.UploadedFile) && ViewBag.SaveFileData != null)
+            {
+                var saveFileData = ViewBag.SaveFileData as SaveFileViewModel;
+                
+                if (saveFileData != null)
+                {
+                    <div class="card shadow border-0 mb-4">
+                        <div class="card-header bg-success text-white text-center py-3">
+                            <h4 class="mb-0">
+                                <i class="fas fa-check-circle me-2"></i>Upload Successful!
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <!-- Quick Preview -->
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-4">
+                                    <div class="text-center p-3 bg-primary text-white rounded">
+                                        <h5 class="mb-1">@saveFileData.TrainerName</h5>
+                                        <small>Trainer Name</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="text-center p-3 bg-warning text-dark rounded">
+                                        <h5 class="mb-1">@saveFileData.TrainerId</h5>
+                                        <small>Trainer ID</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="text-center p-3 bg-info text-white rounded">
+                                        <h5 class="mb-1">Gen @saveFileData.Generation</h5>
+                                        <small>Game Generation</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Action Buttons -->
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                <a href="@Url.Action("Analyze", new { fileName = ViewBag.UploadedFile })" 
+                                   class="btn btn-success me-md-2">
+                                    <i class="fas fa-chart-bar me-2"></i>View Full Analysis
+                                </a>
+                                <a href="@Url.Action("Upload")" class="btn btn-outline-primary">
+                                    <i class="fas fa-plus me-2"></i>Upload Another File
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+            <!-- Instructions -->
+            <div class="card border-0 bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-lightbulb me-2 text-warning"></i>Instructions
+                    </h5>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2">
+                            <i class="fas fa-check text-success me-2"></i>
+                            Select a Pokémon save file (.sav or .srm format)
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-check text-success me-2"></i>
+                            Files must be 32KB or smaller
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-check text-success me-2"></i>
+                            Supported games: Red, Blue, Yellow, Gold, Silver, Crystal
+                        </li>
+                        <li class="mb-0">
+                            <i class="fas fa-check text-success me-2"></i>
+                            Your file will be analyzed and trainer data will be displayed
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const fileInput = document.getElementById('saveFile');
+            const fileInfo = document.getElementById('fileInfo');
+            const fileName = document.getElementById('fileName');
+            const fileSize = document.getElementById('fileSize');
+            const uploadBtn = document.getElementById('uploadBtn');
+            const uploadForm = document.getElementById('uploadForm');
+
+            // File input change handler
+            fileInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                
+                if (file) {
+                    // Show file info
+                    fileName.textContent = file.name;
+                    fileSize.textContent = formatFileSize(file.size);
+                    fileInfo.style.display = 'block';
+                    
+                    // Validate file
+                    const allowedExtensions = ['.sav', '.srm'];
+                    const fileExtension = file.name.toLowerCase().substring(file.name.lastIndexOf('.'));
+                    
+                    if (!allowedExtensions.includes(fileExtension)) {
+                        showAlert('Invalid file type. Please select a .sav or .srm file.', 'danger');
+                        uploadBtn.disabled = true;
+                        return;
+                    }
+                    
+                    if (file.size > 32768) {
+                        showAlert('File too large. Pokemon save files should be 32KB or smaller.', 'danger');
+                        uploadBtn.disabled = true;
+                        return;
+                    }
+                    
+                    uploadBtn.disabled = false;
+                    clearAlerts();
+                } else {
+                    fileInfo.style.display = 'none';
+                    uploadBtn.disabled = true;
+                }
+            });
+
+            // Form submit handler
+            uploadForm.addEventListener('submit', function(e) {
+                if (!fileInput.files[0]) {
+                    e.preventDefault();
+                    showAlert('Please select a file to upload.', 'danger');
+                    return;
+                }
+                
+                // Show loading state
+                uploadBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Uploading...';
+                uploadBtn.disabled = true;
+            });
+
+            // Helper functions
+            function formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+            }
+
+            function showAlert(message, type) {
+                clearAlerts();
+                const alertDiv = document.createElement('div');
+                alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+                alertDiv.innerHTML = `
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                `;
+                document.querySelector('.container-fluid .row .col-lg-8').insertBefore(
+                    alertDiv, 
+                    document.querySelector('.card')
+                );
+            }
+
+            function clearAlerts() {
+                const alerts = document.querySelectorAll('.alert');
+                alerts.forEach(alert => {
+                    if (!alert.querySelector('.fas.fa-check-circle')) {
+                        alert.remove();
+                    }
+                });
+            }
+
+            // Auto-dismiss alerts after 5 seconds
+            setTimeout(function() {
+                const alerts = document.querySelectorAll('.alert');
+                alerts.forEach(alert => {
+                    const closeBtn = alert.querySelector('.btn-close');
+                    if (closeBtn) {
+                        closeBtn.click();
+                    }
+                });
+            }, 5000);
+        });
+    </script>
+}
+
+<style>
+    .card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .card:hover {
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+    }
+    
+    .form-control:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    }
+    
+    .fas {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+    }
+    
+    /* Fallback for Font Awesome icons if not loaded */
+    .fas:before {
+        content: "★";
+    }
+    
+    .fa-upload:before { content: "⬆"; }
+    .fa-file-upload:before { content: "📤"; }
+    .fa-folder-open:before { content: "📂"; }
+    .fa-info-circle:before { content: "ℹ"; }
+    .fa-file:before { content: "📄"; }
+    .fa-check-circle:before { content: "✓"; }
+    .fa-chart-bar:before { content: "📊"; }
+    .fa-plus:before { content: "+"; }
+    .fa-lightbulb:before { content: "💡"; }
+    .fa-check:before { content: "✓"; }
+    .fa-exclamation-triangle:before { content: "⚠"; }
+    .fa-spinner:before { content: "⟳"; }
+    
+    .fa-spin {
+        animation: fa-spin 2s infinite linear;
+    }
+    
+    @@keyframes fa-spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(359deg); }
+    }
+    
+    #fileInfo {
+        animation: slideDown 0.3s ease-out;
+    }
+    
+    @@keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
